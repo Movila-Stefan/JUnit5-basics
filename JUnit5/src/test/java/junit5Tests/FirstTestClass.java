@@ -1,9 +1,29 @@
 package junit5Tests;
 
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 
+@TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class FirstTestClass {
+
+    @BeforeAll
+    void beforeAll(){
+        System.out.println("--this is the before All method");
+    }
+
+    @BeforeEach
+    void beforeEach(){
+        System.out.println("----This is the before Each method");
+    }
+
+    @AfterAll
+    void afeterAll(){
+        System.out.println("-- this is the after All method");
+    }
+
+    @AfterEach
+    void afterEach(){
+        System.out.println("----this is the after Each method");
+    }
 
     @Test
     void firstMethod() {
