@@ -45,5 +45,11 @@ public class ParameterizedTests {
         System.out.println("param1 = " + param1 + ", param2 = " + param2);
     }
 
+    @ParameterizedTest
+    void csvFileSource_StringDoubleIntStringString(String name, double price,
+                                                   int qty, String uom,
+                                                   String provider){
+        System.out.println("name = " + name + ", price = " + price + ", qty = " + qty + ", uom = " + uom + ", provider = " + provider);
+    }
 
 }
