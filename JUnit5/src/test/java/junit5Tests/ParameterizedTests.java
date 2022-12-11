@@ -16,6 +16,7 @@ public class ParameterizedTests {
     @ParameterizedTest(name = "Run: {index} - value: {arguments}")
     @ValueSource(ints = {1,5,6})
     void intValues(int theParam) {
+
         System.out.println("theParam = " + theParam);
     }
 
