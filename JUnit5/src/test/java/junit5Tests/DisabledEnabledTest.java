@@ -2,9 +2,10 @@ package junit5Tests;
 
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.condition.DisabledIfSystemProperty;
-import org.junit.jupiter.api.condition.DisabledOnOs;
-import org.junit.jupiter.api.condition.OS;
+import org.junit.jupiter.api.condition.*;
+
+import java.time.DayOfWeek;
+import java.time.LocalDateTime;
 
 public class DisabledEnabledTest {
 
@@ -28,13 +29,20 @@ public class DisabledEnabledTest {
     }
 
     @Test
+    @DisabledIf(value = "provider", disabledReason = "Disabled for demo of @Disabled ")
     void forthTest(){
         System.out.println("This is the forth test method");
     }
 
     @Test
+    //@EnabledIf()
     void fifthTest(){
         System.out.println("This is the fifth test method");
     }
+
+    boolean provider(){
+        return LocalDateTime.now().getDayOfWeek().equals(DayOfWeek.WEDNESDAY);
+    }
+
 
 }
